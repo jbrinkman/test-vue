@@ -17,3 +17,25 @@
         </ul>
     </div>
 </template>
+
+<script>
+    export default {
+        name: "Home",
+        props: {
+        },
+        data: function () {
+            return {
+                model: {},
+            };
+        },
+        computed: {
+        },
+        mounted: function () {
+        },
+        methods: {
+        },
+    }
+</script>
+
+<style scoped>
+</style>

@@ -10,7 +10,10 @@ module.exports = (env) => {
     return [{
         stats: { modules: false },
         context: __dirname,
-        resolve: { extensions: [ '.js', '.ts' ] },
+        resolve: {
+            extensions: ['.js', '.ts'],
+            alias: { vue: 'vue/dist/vue.js' }
+        },
         entry: { 'main': './ClientApp/boot.ts' },
         module: {
             rules: [
@@ -35,7 +38,8 @@ module.exports = (env) => {
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require('./wwwroot/dist/vendor-manifest.json')
-            })
+            }),
+            new ExtractTextPlugin('navmenu.css')
         ].concat(isDevBuild ? [
             // Plugins that apply in development builds only
             new webpack.SourceMapDevToolPlugin({
